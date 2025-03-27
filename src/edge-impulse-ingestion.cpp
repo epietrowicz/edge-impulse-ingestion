@@ -1,7 +1,7 @@
 /*
- * Project myProject
- * Author: Your Name
- * Date:
+ * Project Edge Impulse ingestion example
+ * Author: Eric Pietrowicz
+ * Date: 03/27/2025
  * For comprehensive documentation and examples, please visit:
  * https://docs.particle.io/firmware/best-practices/firmware-template/
  */
@@ -25,9 +25,8 @@ void setup()
 
 void loop()
 {
-  // The core of your code will likely live here.
   readTemperature(&temperatureReading);
   Log.info("Temperature reading: %f", temperatureReading.degreesF);
-  delay(15000); // Delay for 1 second to avoid flooding the logs
   Particle.publish("training-data", temperatureReading.degreesF);
+  delay(15000);
 }
